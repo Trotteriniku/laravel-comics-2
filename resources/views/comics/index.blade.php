@@ -17,7 +17,7 @@
                                 </div>
 
                                 <div class="card-body px-0">
-                                    <h6 class="card-title text-uppercase text-light">{{ $comic->series }}</h6>
+                                    <h6 class="card-title text-uppercase text-light">{{ $comic->title }}</h6>
                                 </div>
 
                             </div>
