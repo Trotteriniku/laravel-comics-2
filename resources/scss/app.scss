@@ -1,0 +1,46 @@
+
+@use './partials/variables' as *;
+
+$fa-font-path: "../webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+header{
+    li{
+    font-weight: 700;
+    }
+
+
+    img{
+      max-width: 90px;
+    }
+}
+
+footer{
+
+     background-image: url('../img/footer-bg.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+}
+
+.Myjumbotron{
+    background-image: url('../img/jumbotron.jpg');
+    height:450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.card{
+    background-color: #222;
+    .myimgcard{
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+}
