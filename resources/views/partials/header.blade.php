@@ -12,7 +12,7 @@
         <ul class="nav align-content-center justify-content-end ">
             @foreach ($navitems as $items)
                 <li class="nav-item">
-                    <a class="nav-link text-secondary text-uppercase fs-5 " href.prevent="#">{{ $items['name'] }}</a>
+                    <a class="nav-link text-uppercase fs-5 " href.prevent="#">{{ $items['name'] }}</a>
                 </li>
             @endforeach
 

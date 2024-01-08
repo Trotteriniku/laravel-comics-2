@@ -13,6 +13,22 @@ $fa-font-path: "../webfonts" !default;
 header{
     li{
     font-weight: 700;
+
+
+        &:hover{
+            transition: 0.3s;
+            transform: scale(1.1);
+
+        }
+
+        a{
+            color: gray!important;
+            &:hover{
+                color: #0d6efd!important;
+                border-bottom: 3px  solid;
+
+            }
+        };
     }
 
 
@@ -44,3 +60,22 @@ footer{
         overflow: hidden;
     }
 }
+
+.input-color{
+    background-color: #222;
+    padding: 15px;
+    margin-top: 15px;
+    border-color: transparent;
+    color: whitesmoke;
+    &:focus{
+        background-color: #222!important;
+        outline: 0!important;
+        color: #ffffff;
+        // border-color: transparent!important;
+    }
+    &::placeholder{
+        color: whitesmoke;
+
+    }
+}
+
