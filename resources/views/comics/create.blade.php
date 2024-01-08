@@ -1,12 +1,15 @@
 @section('content')
-    <form action="{{ route('comics.store') }}" method="POST">
+    <form action="{{ route('comics.store') }}" method="POST"enctype="multipart/form-data">
 
         @csrf
-        <input type="text" placeholder="inserisci titolo" id="title" name="title" class="form-control">
-        <input type="text" placeholder="inserisci una descrizione" id="description" name="description" class="form-control">
-        <input type="text" placeholder="inserisci un prezzo" id="price" name="price" class="form-control">
-        <input type="text" placeholder="inserisci una tipologia" id="type" name="type" class="form-control">
-        <button type="submit">invia</button>
-
+        <input type="text" name="title" id="title" placeholder="inserisci titolo" class="form-control text-center ">
+        <input type="text" name="price" id="price" placeholder="price" class="form-control text-center">
+        <input type="text" name="description" id="description" placeholder="description"class="form-control text-center">
+        <input type="text" name="type" id="type" placeholder="type" class="form-control text-center">
+        <input type="text" name="sale_date" id="sale_date" placeholder="sale_date" class="form-control text-center">
+        <input type="text" name="series" id="series" placeholder="series" class="form-control text-center">
+        <label for="image">Seleziona un'immagine:</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <button type="submit" class="btn btn-primary">invia</button>
     </form>
 @endsection
