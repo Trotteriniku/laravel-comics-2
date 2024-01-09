@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
-@section('title, comic_details')
+@section('title', 'comic_details')
 
 @section('content')
     <main>
-        <div class="Myjumbotron"></div>
-        <div class="bg-primary p-5 position-relative mb-5"></div>
+        <div class="bg-primary p-5 position-relative mb-5">
+            <a href="{{ route('comics.edit', $comic->id) }}" class=" btn text-end position-absolute text-light "
+                style="right:45%; top:77%; background-color:#222222;">Modifica fumetto</a>
+
+        </div>
         <div class="container d-flex gap-5 mb-5 ">
             <div class=" w-75 ">
                 <img src="{{ $comic->thumb }}" alt="" class=" position-absolute "
@@ -17,6 +20,7 @@
                 </div>
                 <p>{{ $comic->description }}</p>
             </div>
+
 
 
             <aside class="w-50">

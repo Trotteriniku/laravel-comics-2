@@ -34,17 +34,25 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        // prendo i dati del form dalla request
+        $request->validate([
+            'title' => 'required|min:5|unique:comics',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|max:20',
+            'sale_date' => 'required',
+            'series' => 'required|max:30',
+            'type' => 'required'
+        ]);
         $formData = $request->all();
-        $newComic = new Comic();
-        $newComic->title = $formData['title'];
-        $newComic->price = $formData['price'];
-        $newComic->description = $formData['description'];
-        $newComic->type = $formData['type'];
-        $newComic->thumb = $formData['thumb'];
-        $newComic->sale_date = $formData['sale_date'];
-        $newComic->series = $formData['series'];
-        $newComic->save();
-        return to_route('comics.index');
+
+        $newComic = Comic::create($formData);
+        //$newComic = new Comic();
+        // assegno i valori del form al nuovo comic
+        //$newComic->fill($formData);
+        // salvo il nuovo prodotto
+        //$newComic->save();
+        return to_route('comics.show', $newComic->id);
     }
 
     /**
@@ -61,11 +69,10 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -73,21 +80,30 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->all();
+        // $comic->title = $formData['title'];
+        // $comic->price = $formData['price'];
+        // $comic->description = $formData['description'];
+        // $comic->type = $formData['type'];
+        // $comic->thumb = $formData['thumb'];
+        // $comic->sale_date = $formData['sale_date'];
+        // $comic->series = $formData['series'];
+        $comic->fill($formData);
+        $comic->update();
+        return to_route('comics.show', $comic->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return to_route('comics.index')->with('message', "Il prodotto $comic->title è stato cancellato");
     }
 }

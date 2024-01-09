@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
-@section('title, home')
+@section('title', 'comics')
 
 @section('content')
     <main>
-        <div class="Myjumbotron"></div>
         <div style="background-color: #222222">
             <div class="container position-relative  py-4 px-0 text-center">
+                <a href="{{ route('comics.create') }}" class=" btn btn-primary text-end  ">Crea nuovo fumetto</a>
+                @if (session()->has('message'))
+                    <div class="alert alert-success mt-3">{{ session()->get('message') }}</div>
+                @endif
                 <div class=" row row-cols-md-6 row-cols-sm-3">
+
+
                     @foreach ($comics as $comic)
                         <a href=" {{ route('comics.show', $comic->id) }}" class=" text-decoration-none ">
                             <div class="card rounded-0 p-0 border-0 my-3  " style="max-width: 250px;">
@@ -19,6 +24,11 @@
                                 <div class="card-body px-0">
                                     <h6 class="card-title text-uppercase text-light">{{ $comic->title }}</h6>
                                 </div>
+                                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-warning w-100 ">Remove</button>
+                                </form>
 
                             </div>
                         </a>
