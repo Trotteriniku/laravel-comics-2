@@ -17,8 +17,12 @@
 
 <body>
     @include('partials.header')
+    <main>
+        <div class="Myjumbotron"></div>
 
-    @yield('content')
+        @yield('content')
+    </main>
+
 
     @include('partials.footer')
 

@@ -1,12 +1,14 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('title, home')
 
 @section('content')
     <main>
-        <div class="Myjumbotron"></div>
-        @include('comics.index')
+        {{-- <div class="Myjumbotron"></div> --}}
+        <div>
+
+        </div>
         @include('partials.footerblu')
     </main>
 
-@endsection('content') --}}
+@endsection('content')
