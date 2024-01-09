@@ -3,20 +3,21 @@
 @endphp
 
 <header>
-    <div class=" d-flex justify-content-lg-evenly py-4  ">
+    <div class="d-flex justify-content-lg-evenly py-4">
         <a href="{{ route('home') }}">
             <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="dc logo">
         </a>
 
-
-        <ul class="nav align-content-center justify-content-end ">
-            @foreach ($navitems as $items)
+        <ul class="nav align-content-center justify-content-end">
+            @foreach ($navitems as $item)
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase fs-5 " v-if="$item['name']=== COMICS"
-                        href="{{ route('comics.index') }}">{{ $items['name'] }}</a>
+                    @if ($item['name'] === 'comics')
+                        <a class="nav-link text-uppercase fs-5" href="{{ route('comics.index') }}">{{ $item['name'] }}</a>
+                    @else
+                        <a class="nav-link text-uppercase fs-5">{{ $item['name'] }}</a>
+                    @endif
                 </li>
             @endforeach
-
         </ul>
     </div>
 </header>
