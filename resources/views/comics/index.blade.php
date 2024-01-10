@@ -6,7 +6,18 @@
     <main>
         <div style="background-color: #222222">
             <div class="container position-relative  py-4 px-0 text-center">
-                <a href="{{ route('comics.create') }}" class=" btn btn-primary text-end  ">Crea nuovo fumetto</a>
+                <div>
+                    <a href="{{ route('comics.create') }}" class=" btn btn-primary text-end  ">Crea nuovo fumetto</a>
+                    <form action="{{ route('comics.index') }}" method="GET">
+                        <select name="search" id="search">
+                            <option value="">All</option>
+                            <option value="comic book">comic book</option>
+                            <option value="graphic novel">graphic novel</option>
+                            <option value="manga">manga</option>
+                        </select>
+                        <button type="submit">cerca</button>
+                    </form>
+                </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success mt-3">{{ session()->get('message') }}</div>
                 @endif
@@ -15,7 +26,7 @@
 
                     @foreach ($comics as $comic)
                         <a href=" {{ route('comics.show', $comic->id) }}" class=" text-decoration-none ">
-                            <div class="card rounded-0 p-0 border-0 my-3  " style="max-width: 250px;">
+                            <div class="card rounded-0 p-0 border-0 my-3 h-100   " style="max-width: 250px;">
 
                                 <div class="myimgcard">
                                     <img src="{{ $comic->thumb }}" class="card-img-top w-100  " alt="series">
@@ -27,7 +38,8 @@
                                 <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-warning w-100 ">Remove</button>
+                                    <button type="submit" class="cancel-button btn  btn-outline-warning w-100 "
+                                        data-item-title{{ $comic->title }}>Remove</button>
                                 </form>
 
                             </div>
@@ -43,5 +55,5 @@
         </div>
         @include('partials.footerblu')
     </main>
-
-@endsection('content')
+    @include('partials.modal_delete');
+@endsection
