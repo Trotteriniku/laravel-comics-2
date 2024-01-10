@@ -18,31 +18,30 @@
             @error('title')
                 <div class="text-light">{{ $message }}</div>
             @enderror
-            <input type="text" name="price" id="price" placeholder="price" class="form-control  input-color"
-                required>
+            <input type="text" name="price" id="price" value="{{ old('price') }}" placeholder="price"
+                class="form-control  input-color" required>
 
-            <input type="text" name="description" id="description"
-                placeholder="description"class="form-control  input-color" required>
+
 
 
             <label for="description" class="text-light mt-3">Example textarea</label>
-            <textarea class="form-control  input-color" id="description" name="description" placeholder="description"
-                rows="3"></textarea>
+            <textarea class="form-control  input-color" value="{{ old('description') }}"id="description" name="description"
+                placeholder="description" rows="3"></textarea>
 
-            <input type="text" name="type" id="type" placeholder="type" class="form-control  input-color"
-                required>
+            <input type="text" name="type" id="type" placeholder="type"
+                value="{{ old('type') }}"class="form-control  input-color" required>
 
-            <input type="text" name="sale_date" id="sale_date" placeholder="sale_date" class="form-control  input-color"
-                required>
+            <input type="text" name="sale_date" id="sale_date" placeholder="sale_date" value="{{ old('sale_date') }}"
+                class="form-control  input-color" required>
 
-            <input type="text" name="series" id="series" placeholder="series" class="form-control  input-color"
-                required>
+            <input type="text" name="series" id="series" value="{{ old('series') }}" placeholder="series"
+                class="form-control  input-color" required>
 
 
-            <label for="description" class="text-light mt-3  ">Seleziona
+            <label for="thumb" class="text-light mt-3  ">Seleziona
                 un'immagine:</label>
-            <input type="url" name="thumb" id="thumb" class=" form-control input-color h-25   "
-                placeholder="inserisci un Url" required>
+            <input type="url" name="thumb" id="thumb" value="{{ old('thumb') }}"
+                class=" form-control input-color h-25   " placeholder="inserisci un Url" required>
 
 
             <button type="submit" class="btn btn-primary  input-color form-control">invia</button>

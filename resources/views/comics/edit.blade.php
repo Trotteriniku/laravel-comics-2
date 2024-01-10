@@ -27,12 +27,10 @@
             <input type="text" name="series" id="series" placeholder="series" class="form-control  input-color"
                 value="{{ $comic->series }}" required>
 
-            <div class=" input-group-sm d-flex align-items-center  ">
-                <label for="description" class=" w-25  mt-5  input-color   ">Seleziona
-                    un'immagine:</label>
-                <input type="url" name="thumb" id="thumb" class="w-75  input-color h-25 mt-5  "
-                    value="{{ $comic->thumb }}" required>
-            </div>
+            <label for="thumb" class="text-light mt-3  ">Seleziona
+                un'immagine:</label>
+            <input type="url" name="thumb" id="thumb" value="{{ $comic->thumb }}"
+                class=" form-control input-color h-25   " placeholder="inserisci un Url" required>
 
             <button type="submit" class="btn btn-primary  input-color form-control">invia</button>
             <button type="reset" class="btn btn-primary  input-color form-control">resetta</button>
