@@ -5,7 +5,15 @@
 @section('content')
     <div class="container bg-primary p-3 rounded-3" style="margin: 40px auto">
         <form action="{{ route('comics.update', $comic->id) }}" method="POST"enctype="multipart/form-data">
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @csrf
             @method('PUT')
             <input type="text" name="title" id="title" placeholder="inserisci titolo" class="form-control  input-color "

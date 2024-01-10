@@ -24,7 +24,7 @@ class UpdateComicRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:5|max:255|unique:comics',
+            'title' => 'required|min:5|max:255',
             'description' => 'required',
             'thumb' => 'url',
             'price' => 'required|max:20',
@@ -40,6 +40,7 @@ class UpdateComicRequest extends FormRequest
             'title.required' => 'Il campo titolo è obbligatorio',
             'title.min' => 'Il campo titolo deve avere almeno :min caratteri',
             'title.max' => 'Il campo titolo deve avere massimo :max caratteri',
+            // 'title.unique' => 'Questo titolo è già in uso. Scegli un titolo unico.',
             'description.required' => 'Il campo descrizione è obbligatorio',
             'thumb.url' => 'Il campo thumb deve essere un URL valido',
             'price.required' => 'Il campo prezzo è obbligatorio',

@@ -99,7 +99,7 @@ class ComicController extends Controller
      */
     public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $formData = $request->validated();
+        $formData = $request->all();
 
         // $comic->title = $formData['title'];
         // $comic->price = $formData['price'];
